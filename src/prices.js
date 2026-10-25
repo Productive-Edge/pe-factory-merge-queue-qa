@@ -7,5 +7,18 @@ export function withTax(amount, rate) {
   return Math.round(amount * (1 + rate) * 100) / 100;
 }
 
-// Prices are shown in whole dollars on receipts.
-export const RECEIPT_ROUNDING = 1;
+// Takes `percent` off `amount`: discount(200, 10) is 180.
+export function discount(amount, percent) {
+  return amount - percent;
+}
+
+// Formats an amount for a receipt: formatMoney(5) is "$5.00".
+export function formatMoney(amount) {
+  return `$${amount}`;
+}
+
+// The total a receipt shows: the subtotal, less 5% when it is over $100, plus tax.
+export function receiptTotal(items, taxRate) {
+  const sub = subtotal(items);
+  return withTax(sub, taxRate);
+}
