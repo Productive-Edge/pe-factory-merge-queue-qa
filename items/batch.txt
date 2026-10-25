@@ -1,0 +1,3 @@
+items/bug-discount.md
+items/bug-bulk-discount.md after items/bug-discount.md
+items/bug-format-money.md

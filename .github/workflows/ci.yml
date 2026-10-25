@@ -13,3 +13,15 @@ jobs:
         with:
           node-version: 20
       - run: npm test
+  # The changelog is checked in the merge queue only; on a pull request this job passes at once.
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        if: github.event_name == 'merge_group'
+        with:
+          fetch-depth: 0
+      - if: github.event_name == 'merge_group'
+        run: sh scripts/check-changelog.sh "${{ github.event.merge_group.base_sha }}" "${{ github.event.merge_group.head_sha }}"
+      - if: github.event_name != 'merge_group'
+        run: echo "checked in the merge queue"
