@@ -1,4 +1,4 @@
-// A tiny price calculator: just enough code for the factory to change in tests.
+// A tiny price calculator: just enough code for the factory to change in its tests.
 export function subtotal(items) {
   return items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 }
