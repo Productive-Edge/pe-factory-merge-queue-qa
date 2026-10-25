@@ -34,3 +34,10 @@ test("formatMoney throws a TypeError for an amount that is not a finite number",
 test("formatMoney throws a RangeError when the cents cannot be exact", () => {
   assert.throws(() => formatMoney(1e21), RangeError);
 });
+
+test("formatMoney groups the integer part in threes with commas", () => {
+  assert.equal(formatMoney(1234.5), "$1,234.50");
+  assert.equal(formatMoney(1234567), "$1,234,567.00");
+  assert.equal(formatMoney(-1234.5), "-$1,234.50");
+  assert.equal(formatMoney(5), "$5.00");
+});
