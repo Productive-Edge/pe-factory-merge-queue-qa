@@ -7,9 +7,10 @@ export function withTax(amount, rate) {
   return Math.round(amount * (1 + rate) * 100) / 100;
 }
 
-// Takes `percent` off `amount`: discount(200, 10) is 180.
+// Takes `percent` per cent off `amount`: discount(200, 10) is 180.
+// `percent` is a whole per cent from 0 to 100 (10 means 10%, not 0.1); it is not clamped.
 export function discount(amount, percent) {
-  return amount - percent;
+  return amount * (1 - percent / 100);
 }
 
 // Formats an amount for a receipt with two decimal places: formatMoney(5) is "$5.00",
