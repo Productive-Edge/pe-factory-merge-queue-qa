@@ -14,9 +14,9 @@ export function discount(amount, percent) {
 }
 
 // Formats an amount for a receipt with two decimal places, grouping the dollars in
-// threes with commas: formatMoney(5) is "$5.00", formatMoney(-1234.5) is "-$1,234.50". Rounds to the cent like withTax. Throws a TypeError
-// for an amount that is not a finite number, and a RangeError when its cents exceed
-// Number.MAX_SAFE_INTEGER.
+// threes with commas: formatMoney(5) is "$5.00", formatMoney(-1234.5) is "-$1,234.50".
+// Rounds to the cent like withTax. Throws a TypeError for an amount that is not a
+// finite number, and a RangeError when its cents exceed Number.MAX_SAFE_INTEGER.
 export function formatMoney(amount) {
   if (typeof amount !== "number" || !Number.isFinite(amount)) {
     throw new TypeError(`formatMoney: amount must be a finite number, got ${String(amount)}`);
