@@ -1,0 +1,8 @@
+// A tiny price calculator: just enough code for the factory to change in tests.
+export function subtotal(items) {
+  return items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+}
+
+export function withTax(amount, rate) {
+  return Math.round(amount * (1 + rate) * 100) / 100;
+}

@@ -1,0 +1,9 @@
+{
+  "name": "pe-factory-merge-queue-qa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Scratch repository for testing the factory's merge-queue support. Contains no real code.",
+  "type": "module",
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=20" }
+}
