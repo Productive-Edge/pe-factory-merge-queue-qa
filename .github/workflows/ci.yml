@@ -12,6 +12,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      # QA run 12: hold this merge group long enough for the next change to queue behind it.
+      - if: github.event_name == 'merge_group'
+        run: sleep 300
       - run: npm test
   # The changelog is checked in the merge queue only; on a pull request this job passes at once.
   changelog:
