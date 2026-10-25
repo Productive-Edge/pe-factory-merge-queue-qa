@@ -6,3 +6,6 @@ export function subtotal(items) {
 export function withTax(amount, rate) {
   return Math.round(amount * (1 + rate) * 100) / 100;
 }
+
+// Prices are shown in whole dollars on receipts.
+export const RECEIPT_ROUNDING = 1;
