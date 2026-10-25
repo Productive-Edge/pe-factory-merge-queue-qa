@@ -21,5 +21,6 @@ export function formatMoney(amount) {
 // The total a receipt shows: the subtotal, less 5% when it is over $100, plus tax.
 export function receiptTotal(items, taxRate) {
   const sub = subtotal(items);
-  return withTax(sub, taxRate);
+  const discounted = sub > 100 ? discount(sub, 5) : sub;
+  return withTax(discounted, taxRate);
 }
