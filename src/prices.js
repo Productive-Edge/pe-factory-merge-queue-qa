@@ -9,7 +9,7 @@ export function withTax(amount, rate) {
 
 // Takes `percent` off `amount`: discount(200, 10) is 180.
 export function discount(amount, percent) {
-  return amount - percent;
+  return amount * (1 - percent / 100);
 }
 
 // Formats an amount for a receipt: formatMoney(5) is "$5.00".
