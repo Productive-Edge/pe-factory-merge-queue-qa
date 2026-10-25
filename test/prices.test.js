@@ -9,3 +9,8 @@ test("subtotal adds price times quantity", () => {
 test("withTax rounds to cents", () => {
   assert.equal(withTax(10, 0.0825), 10.83);
 });
+
+test("receipts round to cents", async () => {
+  const mod = await import("../src/prices.js");
+  assert.notEqual(mod.RECEIPT_ROUNDING, 1, "receipts must keep cents");
+});
