@@ -6,3 +6,11 @@
 - **Actual:** the total is `220`.
 
 A subtotal of exactly $100 gets no discount. Done when `receiptTotal` applies it and tests cover $200 and $100.
+
+<!-- pe:build-record v1 -->
+## Built
+
+- Run: 01a174c9-1c35-7cf9-a235-89c97623d508, on branch `fix/bug-bulk-discount-35c75f`
+- Design decisions made during the build:
+  none recorded
+<!-- /pe:build-record v1 -->
