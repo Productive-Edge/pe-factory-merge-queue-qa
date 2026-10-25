@@ -18,9 +18,18 @@ export function formatMoney(amount) {
   return `$${amount}`;
 }
 
-// The total a receipt shows: the subtotal, less 5% when it is over $100, plus tax.
+// A receipt whose subtotal is over BULK_THRESHOLD dollars gets BULK_PERCENT per cent off.
+const BULK_THRESHOLD = 100;
+const BULK_PERCENT = 5;
+
+function roundToCents(amount) {
+  return Math.round(amount * 100) / 100;
+}
+
+// The total a receipt shows: the subtotal in cents, less 5% (rounded to cents)
+// when it is over $100, plus tax.
 export function receiptTotal(items, taxRate) {
-  const sub = subtotal(items);
-  const discounted = sub > 100 ? discount(sub, 5) : sub;
+  const sub = roundToCents(subtotal(items));
+  const discounted = sub > BULK_THRESHOLD ? roundToCents(discount(sub, BULK_PERCENT)) : sub;
   return withTax(discounted, taxRate);
 }
