@@ -14,7 +14,7 @@ export function discount(amount, percent) {
 
 // Formats an amount for a receipt: formatMoney(5) is "$5.00".
 export function formatMoney(amount) {
-  return `$${amount}`;
+  return `$${amount.toFixed(2)}`;
 }
 
 // The total a receipt shows: the subtotal, less 5% when it is over $100, plus tax.
